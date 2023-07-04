@@ -1,0 +1,15 @@
+.place-root{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 200px;
+}
+
+.place-container{
+    
+    width: 62%;
+}
+
+.hr-bar{
+    margin-top: 20px;
+}

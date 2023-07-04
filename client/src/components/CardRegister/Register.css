@@ -1,0 +1,21 @@
+.form-container-register{
+     display: flex;
+     flex-direction: column;
+     row-gap: 20px;
+     align-items: flex-start;
+}
+
+.form-register-input{
+ position: relative;
+  right: 85px;
+} 
+
+.register-root-container{
+     border: solid 0.5px var(--color3);
+     width: 60%;
+     height: 550px;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ }

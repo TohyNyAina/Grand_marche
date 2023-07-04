@@ -1,0 +1,132 @@
+
+.login-root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;   
+    margin-top: 75px;
+}
+
+.login-root-container{
+    border: solid 0.5px var(--color3);
+    width: 60%;
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-login{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: 500px;
+     width: 95%;
+}
+
+.container-login-1{
+    width: 100%;
+}
+
+.container-login-2-1{
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.fomr-container{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.button-connexion{
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 6px;
+    height: 34px;
+    width: 120px;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.button-connexion:hover{
+    background-color: var(--primary);
+    border: none;
+    border-radius: 6px;
+    height: 34px;
+    width: 120px;
+    color: white;
+    transition: .4s;
+}
+
+.text-login-main{
+    position: relative;
+    top: 2;
+}
+
+.form-container-login{
+     width: auto;
+}
+
+.text-connexion{
+    margin-left: 375px;
+    margin-top: 100px;
+}
+/* code by Finoana Randri & tolotra */
+.form-1{
+    display: flex;
+    flex-direction: row;
+    gap: 160px;
+}
+
+.form-2{
+    display: flex;
+    flex-direction: row;
+    gap: 99px;
+}
+
+input[type="text"] {
+    width: 500px;
+    height: 48px;
+  }
+
+
+input[type="password"] {
+    width: 500px;
+    height: 48px;
+  }
+
+  .label-form{
+     display: flex;
+     justify-content: center ;
+     align-items: center;
+  }
+
+  .button-container{
+   margin-top: 20px;
+   display: flex;
+   flex-direction: column;
+ align-items: center;
+   padding-bottom: 20px;
+   
+   
+  }
+
+  .text-h3-login{
+    font-size: 16px;
+    color: var(--secondary);
+  }
+
+  .form-container-login{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+ 
+   }

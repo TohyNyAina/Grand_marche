@@ -1,0 +1,143 @@
+nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 400px;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+}
+
+
+
+.link-login-register{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  
+}
+
+.text-login-register{
+  color: black;
+  font-size: 14px;
+}
+.text-login-register:hover{
+  
+  color: var(--primary);
+  transition: .4s;
+  
+}
+
+
+.nav-text{
+   display: flex;
+   flex-direction: row;
+  
+   align-items: center;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  gap: 10px;
+
+}
+
+.nav-text:hover{
+  color: var(--primary);
+  transition: .4s;
+}
+
+
+
+.navbar-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 75%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+
+  gap: 30px;
+}
+
+.container-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.effect-color-icon{
+  color: black;
+}
+.effect-color-icon:hover {
+  color: var(--primary);
+}
+.child-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor: pointer;
+  list-style: none;
+}
+.child-1-1:hover {
+  color: var(--primary);
+}
+
+.child-1-2:hover {
+  color: var(--primary);
+}
+
+.navchild-1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.navchild-2 {
+  display: flex;
+  flex: direction row;
+  width: auto;
+}
+
+.icon-menu {
+  display: flex;
+  flex-direction: row;
+  width: 60px;
+  gap: 10px;
+  margin-left: 20px;
+  
+}
+
+.login-register {
+  margin-left: 60px;
+  margin-top: 3px;
+}
+
+ .panier{
+  
+  display: flex;
+  align-items: center;
+}
+.favoris{
+  display: flex;
+  align-items: center;
+}
+
+.count{
+  background-color: var(--primary);
+  border-radius: 50%;
+  width: 25px;
+  height: 70%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

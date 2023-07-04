@@ -1,0 +1,12 @@
+
+.livraison-root-container{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+
+.livraison-container{
+  width: 60%;
+  padding: 20px 0;
+}

@@ -1,0 +1,38 @@
+.cardform{
+    margin-top: 60px;
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+    width: 90%;
+    margin-left: 20px;
+}
+
+.ajout{
+    text-align: center;
+    font-size: 30px;
+}
+
+.lb{
+    margin-left: 160px;
+}
+
+.tp{
+    margin-left: 550px;
+}
+
+.ip{
+    margin-left: 150px;
+    border-radius: 5px;
+    width: 33%;
+}
+
+.ajbutton{
+    margin-left: 43%;
+    background-color: rgb(208, 0, 32);
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.ajbutton:hover{
+    opacity: .8;
+}

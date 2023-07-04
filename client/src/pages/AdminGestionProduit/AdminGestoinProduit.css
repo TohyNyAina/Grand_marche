@@ -1,0 +1,15 @@
+.crud-admin-root{
+
+    width: 100%;
+    height: auto;
+}
+
+.admin-page-root{
+    display: flex;
+    flex-direction: row;
+}
+
+.page-admin-container{
+    width: 100%;
+    height: auto;
+}

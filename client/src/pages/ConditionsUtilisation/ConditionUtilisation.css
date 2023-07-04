@@ -1,0 +1,16 @@
+.container-conditionUtilisation-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 200px;
+}
+
+.container-conditionUtilisation {
+  width: 60%;
+  height: auto;
+}
+
+p{
+  color: #777777;
+}

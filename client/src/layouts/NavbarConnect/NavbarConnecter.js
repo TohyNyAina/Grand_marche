@@ -80,14 +80,6 @@ const NavbarConnecter = ({ history }) => {
               </div>
 
               <div className="flex w-14 gap-2 ml-5">
-                <div className="flex items-center">
-                  <Link to="/favori">
-                    <AiOutlineHeart size={25} className="effect-color-icon" />
-                  </Link>
-                  <span className="bg-primary rounded-[50%] w-6 h-3/4 text-white flex justify-center items-center">
-                    0
-                  </span>
-                </div>
 
                 <div className="flex items-center">
                   <Link to="/panier">

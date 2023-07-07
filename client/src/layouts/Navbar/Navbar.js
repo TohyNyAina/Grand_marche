@@ -48,27 +48,9 @@ const Navbar = () => {
             <div className="ml-[60px] mt-[3px]">
               <ul className="flex justify-center items-center mb-1">
                 <Link to="/login">
-                  <li className="hover:text-primary duration-500">CONNEXION/</li>
+                  <li className="px-7 mt-1 w-full text-white bg-blue-600 hover:bg-blue-400 py-2 rounded-xl shadow-lg">CONNEXION</li>
                 </Link>
               </ul>
-            </div>
-
-            <div className="flex w-full md:w-auto md:ml-5">
-              <div className="flex items-center">
-                <Link to="/favori">
-                  <AiOutlineHeart size={25} className="effect-color-icon" />
-                </Link>
-
-                <span className="bg-primary rounded-[50%] w-6 h-3/4 text-white flex justify-center items-center">0</span>
-              </div>
-
-              <div className="flex items-center ml-2">
-                <Link to="/panier">
-                  <MdOutlineLocalGroceryStore size={25} className="effect-color-icon" />
-                </Link>
-
-                <span className="bg-primary rounded-[50%] w-6 h-3/4 text-white flex justify-center items-center">{panier_product.length || 0}</span>
-              </div>
             </div>
           </div>
         </div>

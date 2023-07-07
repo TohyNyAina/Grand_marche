@@ -20,17 +20,22 @@ const Categorie = ({ handleCategoryClick }) => {
     const categories = result.data.data.map((produit) => produit.categorie.toLowerCase());
     const uniqueCategories = Array.from(new Set(categories));
 
-    setProduits(uniqueCategories);
+    setProduits(['Tous', ...uniqueCategories]); // Ajouter 'Tous' à la liste des catégories
   }
 
   async function selectCategory(category) {
     setSelectedCategory(category);
-    const result = await axios.get('http://localhost:3002/user/getAll');
-    const filteredProducts = result.data.data.filter(
-      (produit) => produit.categorie.toLowerCase() === category.toLowerCase()
-    );
-    setFilteredProducts(filteredProducts);
-    handleCategoryClick(filteredProducts);
+
+    if (category === 'Tous') {
+      handleCategoryClick([]); // Afficher tous les produits
+    } else {
+      const result = await axios.get('http://localhost:3002/user/getAll');
+      const filteredProducts = result.data.data.filter(
+        (produit) => produit.categorie.toLowerCase() === category.toLowerCase()
+      );
+      setFilteredProducts(filteredProducts);
+      handleCategoryClick(filteredProducts);
+    }
   }
 
   return (
@@ -46,7 +51,7 @@ const Categorie = ({ handleCategoryClick }) => {
             <ul className='p-2'>
               {produits.map((categorie, index) => (
                 <a href='#' key={index} onClick={() => selectCategory(categorie)}>
-                  <li className='flex justify-between items-center'>
+                  <li className={`flex justify-between items-center ${selectedCategory === categorie ? 'font-bold' : ''}`}>
                     {categorie} <IoIosArrowForward />
                   </li>
                 </a>
@@ -55,8 +60,6 @@ const Categorie = ({ handleCategoryClick }) => {
           </div>
         </div>
       </div>
-
-      
     </>
   );
 };

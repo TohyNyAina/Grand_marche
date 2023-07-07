@@ -1,36 +1,25 @@
-import React  from "react";
-import { BsSearch } from "react-icons/bs";
-import iconContact from '../../assets/jpg/icon_contact.png'
+import React from "react";
 
-const SearchBar = ({Search,setSearch,handleClick}) => {
+
+const SearchBar = ({ Search, setSearch, handleClick }) => {
   return (
     <>
-      <div className="w-full h-24 flex justify-start gap-10 ">
-        <div className="flex gap-0">
-          <input
-            className=" input border-r-0 p-2 rounded-tl-[20px] rounded-tr-[20px] w-14 h-12 outline-none"
-            type="text"
-            placeholder="search here..."
-            value={Search}
-            onChange={(e)=>setSearch(e.target.value)}
-            
-          />{" "}
-          <button onClick={handleClick}  className="bg-primary border-0 w-14 h-12 rounded-tr-[20px] rounded-br-[20px] gap-0 text-white cursor-pointer hover:bg-[rgba(255, 0, 0, 0.728)] duration-500">
-            {" "}
-            <BsSearch />
-          </button>
-
-        </div>
-
-        <div className="flex gap-2 mt-1 h-1/2 w-[120px]">
-              <img src={iconContact} width={30} height={30} alt="icon" />
-              
-              <div className="w-full">
-              <p>(+261) 32 55 504 44</p>
-                      <p>Service client</p>
-              </div>
-        </div>
-      </div>
+      <div className="w-full h-24 flex justify-start gap-10">
+  <div className="bg-white items-center justify-between w-full flex rounded-full shadow-lg p-2 mb-5 sticky" style={{ top: '5px' }}>
+    <input
+      className="font-bold uppercase rounded-full w-full py-4 pl-4 pr-10 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline lg:text-sm text-xs"
+      type="text"
+      placeholder="search here..."
+      value={Search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+    <button onClick={handleClick} className="bg-blue-600 p-2 hover:bg-blue-400 cursor-pointer mx-2 rounded-full">
+      <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+      </svg>
+    </button>
+  </div>
+</div>
     </>
   );
 };

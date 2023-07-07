@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import './AG.css'
 import axios from 'axios';
 import NavbarAdmin from "../../layouts/NavbarAdmin/NavbarAdmin";
 const AdminGestionUser = () => {

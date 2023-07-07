@@ -10,6 +10,8 @@ exports.register = (req, res) => {
   console.log(req.body);
   const date = new Date()
   const formattedDate = date.toISOString().slice(0, 19).replace('T', ' '); 
+  const nomRegister = req.body.nameRegister;
+  const adresseRegister = req.body.adresseRegister;
   const emailRegister = req.body.emailRegister;
   const passwordRegister = req.body.passwordRegister;
 
@@ -20,7 +22,7 @@ exports.register = (req, res) => {
 
     con.query(
       "INSERT INTO user (id,email,password,type,prenom,nom,adresse,date) VALUES(?,?,?,?,?,?,?,?)",
-      [null,emailRegister, hash,'client',null,null,null,formattedDate],
+      [null,emailRegister, hash,'client',null,nomRegister,adresseRegister,formattedDate],
       (err, result) => {
         console.log(err);
       }

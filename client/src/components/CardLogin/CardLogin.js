@@ -31,7 +31,7 @@ const CardLogin = () => {
   };
 
   return (
-    <div>
+/*     <div>
       <div className="text-connexion">
         <h2>Connectez-vous à votre compte:</h2>
       </div>
@@ -39,7 +39,7 @@ const CardLogin = () => {
         <div className="login-root-container">
           <div className="container-login">
             <div className="container-login-1">
-              {/* ====================form==================== */}
+              
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="fomr-container"
@@ -53,6 +53,7 @@ const CardLogin = () => {
                       <input
                         type="text"
                         {...register("email", { required: true })}
+                        className="w-full rounded-lg border-gray-900 p-4 pe-12 text-sm shadow-sm bg-gray-200"
                       />
                       {errors.email && (
                         <p style={{ color: "red" }}>Your email is required</p>
@@ -68,6 +69,7 @@ const CardLogin = () => {
                       <input
                         type="password"
                         {...register("password", { required: true })}
+                        className="w-full rounded-lg border-gray-900 p-4 pe-12 text-sm shadow-sm bg-gray-200"
                       />
                       {errors.password && (
                         <p style={{ color: "red" }}>
@@ -90,7 +92,7 @@ const CardLogin = () => {
                 </div>
               </form>
 
-              {/* ============================================================ */}
+              
               <hr />
             </div>
 
@@ -118,6 +120,76 @@ const CardLogin = () => {
             </div>
           </div>
         </div>
+      </div>
+    </div> */
+    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-lg">
+        <br/><br/>
+
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
+        >
+          <p className="text-center text-lg font-medium">
+            Connexion a votre compte
+          </p>
+
+          <div>
+            <label className="sr-only">
+              Email
+            </label>
+
+            <div className="relative">
+              <input
+                type="email"
+                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                placeholder="Votre Email"
+                {...register("email", { required: true })}
+              />
+                {errors.email && (
+                        <p style={{ color: "red" }}>Your email is required</p>
+                      )}
+            </div>
+          </div>
+
+          <div>
+            <label className="sr-only">
+              Password
+            </label>
+
+            <div className="relative">
+              <input
+                type="password"
+                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                placeholder="Votre mot de passe"
+                {...register("password", { required: true })}
+              />
+                {errors.password && (
+                        <p style={{ color: "red" }}>
+                          Your password is required
+                        </p>
+                      )}
+                      {errorMessage && (
+                        <p style={{ color: "red" }}>{errorMessage}</p>
+                      )}
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            /* onClick={handleLogin} */
+            className="block w-full rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white hover:bg-blue-400 focus:outline-none focus:bg-blue-600"
+          >
+            Se connecter
+          </button>
+
+          <p className="text-center text-sm text-gray-500">
+            Vous n'avez pas de compte?
+            <Link className="underline" to="/register">
+              S'inscrir
+            </Link>
+          </p>
+        </form>
       </div>
     </div>
   );

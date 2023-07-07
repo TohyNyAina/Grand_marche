@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Categorie.css';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosArrowForward } from 'react-icons/io';
 
-const Categorie = () => {
+const Categorie = ({ handleCategoryClick }) => {
   const [produits, setProduits] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -20,7 +21,16 @@ const Categorie = () => {
     const uniqueCategories = Array.from(new Set(categories));
 
     setProduits(uniqueCategories);
-    console.log(result.data);
+  }
+
+  async function selectCategory(category) {
+    setSelectedCategory(category);
+    const result = await axios.get('http://localhost:3002/user/getAll');
+    const filteredProducts = result.data.data.filter(
+      (produit) => produit.categorie.toLowerCase() === category.toLowerCase()
+    );
+    setFilteredProducts(filteredProducts);
+    handleCategoryClick(filteredProducts);
   }
 
   return (
@@ -35,7 +45,7 @@ const Categorie = () => {
           <div className='text-categorie-liste'>
             <ul className='p-2'>
               {produits.map((categorie, index) => (
-                <a href='#' key={index}>
+                <a href='#' key={index} onClick={() => selectCategory(categorie)}>
                   <li className='flex justify-between items-center'>
                     {categorie} <IoIosArrowForward />
                   </li>
@@ -45,6 +55,8 @@ const Categorie = () => {
           </div>
         </div>
       </div>
+
+      
     </>
   );
 };

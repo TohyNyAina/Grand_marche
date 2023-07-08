@@ -1,20 +1,48 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./Panier.css";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector ,useDispatch } from "react-redux";
 import { addToPanier , removeToPanier , decrementPanier } from "../../Services/panier";
 import axios from "axios";
+import instance from "../../constants/axiosConfig";
 
 const CardPanier = () => {
   const panier_datas = useSelector((state) => state.panier.items);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [id, setId] = useState();
+  const [nom, setNom] = useState();
+  const [email, setEmail] = useState();
+
+  useEffect(() => {
+    axios
+    .get("http://localhost:3002/api/login")
+    .then((response) => {
+      const data = response.data;
+      console.log("Données de l'API :", data);
+      setNom(data.user[0].nom);
+      setEmail(data.user[0].email);
+      setId(data.user[0].id); // Mettre à jour l'ID à partir de la réponse de l'API
+    })
+    .catch((error) => {
+      console.error(
+        "Erreur lors de la récupération des données de l'API :",
+        error
+      );
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log("ID mis à jour :", id);
+    console.log("Nom:", nom);
+    console.log("Email:", email);
+  }, [id,nom,email]);
 
   const notify = () => {
     // Envoyez les données du panier au serveur via une requête POST
     axios
-      .post("http://localhost:3002/api/commande", { panierDatas: panier_datas })
+      .post(`http://localhost:3002/commande/commande/${id}/${nom}/${email}`, { panierDatas: panier_datas })
       .then((response) => {
         toast.success("Paiement réussi");
         setTimeout(() => {

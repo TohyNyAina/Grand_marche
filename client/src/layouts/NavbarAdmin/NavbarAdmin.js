@@ -38,7 +38,7 @@ const NavbarAdmin = () => {
           <h1 className='p-4 text-white text-xl font-semibold'>Admin Dashboard</h1>
           <div className='flex flex-col items-start'>
             <Link to="/admin/gestion-user" className='hover:text-red-100 hover:bg-secondary rounded-l-lg text-lg px-4 py-3 w-full flex items-center gap-1'><MdPerson /> Gestion Utilisateur</Link>
-            <Link to="/admin/gestion-produit" className='hover:text-red-100 hover:bg-secondary rounded-l-lg text-lg px-4 py-3 w-full flex items-center gap-1'><MdShoppingCart /> Gestion Produit</Link>
+            <Link to="/admin" className='hover:text-red-100 hover:bg-secondary rounded-l-lg text-lg px-4 py-3 w-full flex items-center gap-1'><MdShoppingCart /> Gestion Produit</Link>
             {/* <Link to="/admin/gestion-produit" className='hover:text-red-100 hover:bg-secondary rounded-l-lg text-lg px-4 py-3 w-full flex items-center gap-1'><MdChecklist /> List Produit</Link> */}
             <Link to="/admin/commande" className='hover:text-red-100 hover:bg-secondary rounded-l-lg text-lg px-4 py-3 w-full flex items-center gap-1'><MdOutlineShoppingBag /> Commande</Link>
             <Link to="/" className='hover:text-red-100 hover:bg-secondary rounded-l-lg text-lg px-4 py-3 w-full flex items-center gap-1'><MdHome /> Revenir au site</Link>

@@ -27,8 +27,8 @@ function App() {
 
          <Routes >
               <Route element={<AuthAdmin_layout />}>
-                <Route path='/admin'  element={<Admin/>}/>
-                <Route path='/admin/gestion-produit' element={<AdminGestoinProduit/>}/>
+                {/* <Route path='/admin'  element={<Admin/>}/> */}
+                <Route path='/admin' element={<AdminGestoinProduit/>}/>
                 <Route path='/admin/gestion-user' element={<AdminGestionUser/>}/>
                 <Route path='/admin/ajout-produit' element={<AdminAjoutProduit/>}/>
                 <Route path='/admin/commande' element={<AdminCommande/>}/>

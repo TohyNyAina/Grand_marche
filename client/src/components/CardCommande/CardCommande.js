@@ -9,7 +9,7 @@ const CardCommande = () => {
   }, []);
 
   const fetchAllCommandes = () => {
-    axios.get('http://localhost:3002/api/commande')
+    axios.get('http://localhost:3002/commande/commande')
       .then(res => {
         setCommandes(res.data);
       })
@@ -25,16 +25,29 @@ const CardCommande = () => {
           <thead className="bg-primary text-white">
             <tr className="border">
               <th>id</th>
-              <th>Nom</th>
+              <th>Nom du client</th>
+              <th>Email du client</th>
+              <th>Nom du produit</th>
+              <th>Nombre</th>
               <th>Prix</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {commandes.map((commande) => (
               <tr key={commande.id}>
-                <td>{commande.id}</td>
-                <td>{commande.nom_produit}</td>
-                <td>{commande.prix_unitaire}</td>
+                <th>{commande.id}</th>
+                <th></th>
+                <th></th>
+                <th>{commande.nom_produit}</th>
+                <th>{commande.nombre}</th>
+                <th>{commande.prix_unitaire}</th>
+                <th>
+                <button 
+                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                    Livrer
+                  </button>
+                </th>
               </tr>
             ))}
           </tbody>

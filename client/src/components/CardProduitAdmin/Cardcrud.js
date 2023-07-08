@@ -147,7 +147,7 @@ const Cardcrud = () => {
         <label className="flex flex-col">
           Prix:
           <input
-            type="text"
+            type="number"
             name="prix"
             value={formValues.prix}
             onChange={handleFormInputChange}

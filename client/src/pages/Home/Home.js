@@ -5,7 +5,6 @@ import Navbar from "../../layouts/Navbar/Navbar";
 import NavbarConnect from "../../layouts/NavbarConnect/NavbarConnecter"
 import CardProduit from "../../components/CardProduit/CardProduit";
 import Footer from "../../components/Footer/Footer";
-import "./Home.css";
 import Categorie from "../../components/Categorie/Categorie";
 import SearchBar from '../../components/SearchBar/SearchBar';
 import homeImage from '../../assets/jpg/7a04469e89f0c5be97fdd66ffde3a66014312eb8_couverture-min.jpg';

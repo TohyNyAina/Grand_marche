@@ -4,7 +4,8 @@ const session = require('express-session');
 const bodyparser = require("body-parser");
 const authRoute = require("./routes/route.auth");
 const routes = require('./routes/routes');
-const produitRoute = require('./routes/route.produits')
+const produitRoute = require('./routes/route.produits');
+const commandeRoute = require('./routes/route.commande');
 require("dotenv").config();
 
 const app = express();
@@ -31,7 +32,8 @@ app.use(bodyparser.urlencoded({ extended: false }));
 app.use('/file',express.static('./uploads'))
 app.use(routes);
 app.use("/api", authRoute);
-app.use("/api/product",produitRoute)
+app.use("/commande", commandeRoute);
+app.use("/api/product",produitRoute);
 app.listen(expressport, () => {
   console.log(`Server is running on port ${expressport}`);
 });

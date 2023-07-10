@@ -72,7 +72,7 @@ const NavbarConnecter = ({ history }) => {
                         <FaStoreAlt size={25} />
                       </div>
                       <label className="hover:text-primary cursor-pointer duration-500">
-                        Place de Marche
+                        Mes Commande
                       </label>
                     </li>
                   </Link>
@@ -93,7 +93,7 @@ const NavbarConnecter = ({ history }) => {
                   </span>
                 </div>
 
-                <div>
+                {/* <div>
                   
                     <Link to="/compte">
                       <p className="mt-4 px-7 text-sm text-black hover:text-primary duration-500">
@@ -101,7 +101,7 @@ const NavbarConnecter = ({ history }) => {
                       </p>
                     </Link>
                  
-                </div>
+                </div> */}
 
                 <div className="ml-[60px] mt-[3px]">
                   <ul className="flex justify-center items-center mb-1">

@@ -18,6 +18,7 @@ import CompteInformation from './pages/CompteInformation/CompteInformation'
 import AdminGestionUser from './pages/AdminGestionUser/AdminGestionUser';
 import AdminAjoutProduit from './pages/AdminAjoutProduit/AdminAjoutProduit';
 import AdminCommande from './pages/AdminCommande/AdminCommande';
+import AdminHistoriqueCommande from './pages/AdminHistoriqueLivraison/AdminHistoriqueLivraison';
 
 import { AuthAdmin_layout , AuthClient_layout , Authentified_layout } from './Auth';
 
@@ -32,6 +33,7 @@ function App() {
                 <Route path='/admin/gestion-user' element={<AdminGestionUser/>}/>
                 <Route path='/admin/ajout-produit' element={<AdminAjoutProduit/>}/>
                 <Route path='/admin/commande' element={<AdminCommande/>}/>
+                <Route path='/admin/livraison' element={<AdminHistoriqueCommande/>}/>
              </Route>
          </Routes>
 

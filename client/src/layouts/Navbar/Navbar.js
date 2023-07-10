@@ -39,7 +39,7 @@ const Navbar = () => {
                     <div>
                       <FaStoreAlt size={25} />
                     </div>{" "}
-                    <label className="hover:text-primary cursor-pointer duration-500">Place de Marché</label>
+                    <label className="hover:text-primary cursor-pointer duration-500">Mes Commande</label>
                   </li>
                 </Link>
               </ul>

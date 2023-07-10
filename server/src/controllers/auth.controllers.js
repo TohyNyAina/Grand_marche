@@ -51,7 +51,10 @@ exports.login = (req, res) => {
                 nom: result[0].nom,
                 type: result[0].type,
                 email: result[0].email
-              }, process.env.jwtkey)
+              }, process.env.jwtkey),
+              user: {
+                type: result[0].type
+              }
             });
           } else {
             res.status(401).send({ message: "Nom d'utilisateur ou mot de passe incorrect" });

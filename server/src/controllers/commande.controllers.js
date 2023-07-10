@@ -121,3 +121,18 @@ exports.livraison = (req, res) => {
       });
     });
   };
+
+  exports.getlivraison = (req, res) => {
+    con.query('SELECT * FROM livraison', (err, result) => {
+      if (err) {
+        console.error("Erreur lors de la récupération des livraisons :", err);
+        return res.status(500).json({ error: "Erreur lors de la récupération des livraisons" });
+      }
+  
+      if (result.length === 0) {
+        return res.json({ error: "Aucune livraison trouvée" });
+      }
+  
+      res.status(200).json(result);
+    });
+  };

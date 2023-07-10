@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {AiFillDelete} from "react-icons/ai";
 import axios from 'axios';
 
 const CardCommande = () => {
@@ -8,7 +9,7 @@ const CardCommande = () => {
     fetchAllCommandes();
   }, []);
 
-  const fetchAllCommandes = () => {
+const fetchAllCommandes = () => {
     axios.get('http://localhost:3002/commande/commande')
       .then(res => {
         setCommandes(res.data);
@@ -16,7 +17,18 @@ const CardCommande = () => {
       .catch(error => {
         console.error('Erreur lors de la récupération des candidatures :', error);
       });
-  }
+}
+
+const handleLivrer = (id) => {
+  axios.post(`http://localhost:3002/commande/commande/livraison/${id}`)
+    .then(() => {
+      alert('Produit livré avec succès');
+      fetchAllCommandes();
+    })
+    .catch(error => {
+      alert('Erreur lors de la livraison :', error);
+    });
+};
 
 
   return (
@@ -37,15 +49,21 @@ const CardCommande = () => {
             {commandes.map((commande) => (
               <tr key={commande.id}>
                 <th>{commande.id}</th>
-                <th></th>
-                <th></th>
+                <th>{commande.nom}</th>
+                <th>{commande.email}</th>
                 <th>{commande.nom_produit}</th>
                 <th>{commande.nombre}</th>
                 <th>{commande.prix_unitaire}</th>
                 <th>
                 <button 
-                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+                    onClick={() => handleLivrer(commande.id)}  >
                     Livrer
+                  </button>
+                  <button 
+                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+                      >
+                    Supprimer
                   </button>
                 </th>
               </tr>

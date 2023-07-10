@@ -60,7 +60,6 @@ const [userData, setUserData] = useState([])
               <thead>
                 <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                   <th className="px-4 py-3">Nom</th>
-                  <th className="px-4 py-3">Prenom</th>
                   <th className="px-4 py-3">Type</th>
                   <th className="px-4 py-3">Adresse</th>
                   <th className="px-4 py-3">Email</th>
@@ -74,7 +73,6 @@ const [userData, setUserData] = useState([])
                 {userData.map((elemts)=>(
                    <tr className="text-gray-700">
                           <td className="px-4 py-3 text-sm border">{elemts.nom}</td>
-                          <td className="px-4 py-3 text-sm border">{elemts.prenom}</td>
                           <td className="px-4 py-3 text-sm border">{elemts.type}</td>
                           <td className="px-4 py-3 text-sm border">{elemts.adresse}</td>
                           <td className="px-4 py-3 text-sm border">{elemts.email}</td>

@@ -21,7 +21,7 @@ const CardLogin = () => {
     axios
       .post("http://localhost:3002/api/login", data)
       .then((response) => {
-        toast.success('Connexion réussit !')
+        toast.success('Connexion réussie !');
         console.log(response);
         const token = response.data.token;
         document.cookie = `token_jwt=${token}`;
@@ -33,7 +33,7 @@ const CardLogin = () => {
         }
       })
       .catch((error) => {
-        toast.error('Erreur lors du connexion !')
+        toast.error('Erreur lors de la connexion !');
         console.log(error);
         setErrorMessage("Nom d'utilisateur ou mot de passe incorrect");
       });
@@ -93,7 +93,7 @@ const CardLogin = () => {
           >
             Se connecter
           </button>
-          <Toaster/>
+          <Toaster />
 
           <p className="text-center text-sm text-gray-500">
             Vous n'avez pas de compte?

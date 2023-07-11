@@ -70,6 +70,18 @@ exports.commandeenvoye = (req, res) => {
   });
 }
 
+exports.deletecommande = (req,res)=>{
+  const {id} = req.params
+ con.query(`DELETE FROM commande WHERE id=${id}`,(error,result)=>{
+   if(result){
+     res.status(200).json(result)
+   }else{
+     res.send({error:'impossible de supprimer'})
+   }
+ })
+ 
+}  
+
 exports.livraison = (req, res) => {
     const commandeId = req.params.id;
   
@@ -122,7 +134,7 @@ exports.livraison = (req, res) => {
     });
   };
 
-  exports.getlivraison = (req, res) => {
+exports.getlivraison = (req, res) => {
     con.query('SELECT * FROM livraison', (err, result) => {
       if (err) {
         console.error("Erreur lors de la récupération des livraisons :", err);
@@ -136,3 +148,15 @@ exports.livraison = (req, res) => {
       res.status(200).json(result);
     });
   };
+
+exports.deletelivraison = (req,res)=>{
+    const {id} = req.params
+   con.query(`DELETE FROM livraison WHERE id=${id}`,(error,result)=>{
+     if(result){
+       res.status(200).json(result)
+     }else{
+       res.send({error:'impossible de supprimer'})
+     }
+   })
+   
+}  

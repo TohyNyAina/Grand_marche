@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AiFillDelete } from "react-icons/ai";
+import toast, { Toaster } from "react-hot-toast";
 import axios from 'axios';
 
 const CardCommande = () => {
@@ -24,14 +24,27 @@ const CardCommande = () => {
   const handleLivrer = (id) => {
     axios.post(`http://localhost:3002/commande/commande/livraison/${id}`)
       .then(() => {
-        alert('Produit livré avec succès');
+        toast.success('Produit livré avec succès');
         fetchAllCommandes();
       })
       .catch(error => {
-        alert('Erreur lors de la livraison :', error);
+        toast.error('Erreur lors de la livraison :', error);
       });
   };
 
+  const handleRemove = (id)=>{
+    try {
+      const deleteCommande = async ()=>{
+        const result = await axios.delete(`http://localhost:3002/commande/commande/${id}`)
+        setCommandes((prevState)=>prevState.filter(n=> n.id != id))
+      }
+      toast.success('Annulé avec succes !')
+      deleteCommande()
+    } catch (error) {
+      console.log(error);
+      toast.error("Erreur lors de l' annulation !")
+    }
+  }
   const calculateTotals = (commandes) => {
     const totals = {};
     for (const commande of commandes) {
@@ -47,41 +60,43 @@ const CardCommande = () => {
 
   return (
     <div>
-      <table className="table-auto w-[90%] bg-slate-100">
+       <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+          <div className="w-full overflow-x-auto">
+      <table className="w-full mt-10">
         <thead className="bg-primary text-white">
-          <tr className="border gap-4">
-            <th>id</th>
-            <th>id d'Utilisateur</th>
-            <th>Nom du client</th>
-            <th>Email du client</th>
-            <th>Nom du produit</th>
-            <th>Nombre</th>
-            <th>Prix</th>
-            <th>Total</th>
-            <th>Total à payer</th>
-            <th>Action</th>
+          <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+            <th className="px-4 py-3">id</th>
+            <th className="px-4 py-3">User_Id</th>
+            <th className="px-4 py-3">Nom du client</th>
+            <th className="px-4 py-3">Email</th>
+            <th className="px-4 py-3">Produit</th>
+            <th className="px-4 py-3">Nombre</th>
+            <th className="px-4 py-3">Prix</th>
+            <th className="px-4 py-3">Total</th>
+            <th className="px-4 py-3">Total à payer</th>
+            <th className="px-4 py-3">Action</th>
             
           </tr>
         </thead>
-        <tbody>
+        <tbody className="bg-white">
           {commandes.map((commande) => {
             const total = commande.nombre * commande.prix_unitaire;
             const userTotal = totals[commande.userId];
 
             return (
-              <tr key={commande.id}>
-                <th>{commande.id}</th>
-                <th>{commande.userId}</th>
-                <th>{commande.nom}</th>
-                <th>{commande.email}</th>
-                <th>{commande.nom_produit}</th>
-                <th>{commande.nombre}</th>
-                <th>{commande.prix_unitaire} Ar</th>
-                <th>{total} Ar</th>
+              <tr className="text-gray-700" key={commande.id}>
+                <td className="px-4 py-3 text-sm border">{commande.id}</td>
+                <td className="px-4 py-3 text-sm border">{commande.userId}</td>
+                <td className="px-4 py-3 text-sm border">{commande.nom}</td>
+                <td className="px-4 py-3 text-sm border">{commande.email}</td>
+                <td className="px-4 py-3 text-sm border">{commande.nom_produit}</td>
+                <td className="px-4 py-3 text-sm border">{commande.nombre}</td>
+                <td className="px-4 py-3 text-sm border">{commande.prix_unitaire} Ar</td>
+                <td className="px-4 py-3 text-sm border">{total} Ar</td>
                 {userTotal && (
-                  <th>{userTotal} Ar</th>
+                  <td>{userTotal} Ar</td>
                 )}
-                <th>
+                <td className="px-4 py-3 text-sm border">
                   <button
                     className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
                     onClick={() => handleLivrer(commande.id)}
@@ -90,15 +105,19 @@ const CardCommande = () => {
                   </button>
                   <button
                     className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
+                    onClick={()=>handleRemove(commande.id)}
                   >
-                    Supprimer
+                    Annulé
                   </button>
-                </th>
+                  <Toaster/>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
+    </div>
+    </div>
     </div>
   );
 };

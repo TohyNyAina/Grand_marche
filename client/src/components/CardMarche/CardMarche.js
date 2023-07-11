@@ -44,36 +44,40 @@ const CardMarche = () => {
 
   return (
     <div className="flex justify-center mt-12">
-      <table className="table-auto w-[90%] bg-slate-100 mt-12">
-        <thead className="bg-primary text-white">
-          <tr className="border">
-            <th>Nom du produit</th>
-            <th>Nombre</th>
-            <th>Prix</th>
-            <th>Total</th>
+       <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+          <div className="w-full overflow-x-auto">
+      <table className="w-full mt-12">
+        <thead>
+          <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+            <th className="px-4 py-3">Nom du produit</th>
+            <th className="px-4 py-3">Nombre</th>
+            <th className="px-4 py-3">Prix</th>
+            <th className="px-4 py-3">Total</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="bg-white">
           {commandes.map((commande) => {
             const total = commande.nombre * commande.prix_unitaire;
 
             return (
-              <tr key={commande.id}>
-                <th>{commande.nom_produit}</th>
-                <th>{commande.nombre}</th>
-                <th>{commande.prix_unitaire} Ar</th>
-                <th>{total} Ar</th>
+              <tr className="text-gray-700" key={commande.id}>
+                <td className="px-4 py-3 text-sm border">{commande.nom_produit}</td>
+                <td className="px-4 py-3 text-sm border">{commande.nombre}</td>
+                <td className="px-4 py-3 text-sm border">{commande.prix_unitaire} Ar</td>
+                <td className="px-4 py-3 text-sm border">{total} Ar</td>
               </tr>
             );
           })}
           <tr>
-            <th colSpan="3" className="text-right pr-4">
+            <th colSpan="3" className="px-4 py-3 text-sm border">
               Total à payer :
             </th>
             <th>{calculerTotalAPayer()} Ar</th>
           </tr>
         </tbody>
       </table>
+    </div>
+    </div>
     </div>
   );
 };

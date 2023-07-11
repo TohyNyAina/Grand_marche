@@ -40,8 +40,8 @@ const Categorie = ({ handleCategoryClick }) => {
 
   return (
     <>
-      <div className='flex justify-center'>
-        <div className='rounded-lg w-[250px] border-2 border-primary'>
+      <div className='flex justify-center mt-12'>
+        <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg mt-12">
           <div className='rounded-tl-[10px] rounded-tr-[10px] w-auto h-[40px] flex items-center justify-center text-white bg-primary'>
             <h4 className='flex items-center gap-1'>
               <GiHamburgerMenu size={20} /> Tous Catégories
@@ -50,7 +50,7 @@ const Categorie = ({ handleCategoryClick }) => {
           <div className='text-categorie-liste'>
             <ul className='p-2'>
               {produits.map((categorie, index) => (
-                <a href='#' key={index} onClick={() => selectCategory(categorie)}>
+                <a className="hover:text-blue-600" href='#' key={index} onClick={() => selectCategory(categorie)}>
                   <li className={`flex justify-between items-center ${selectedCategory === categorie ? 'font-bold' : ''}`}>
                     {categorie} <IoIosArrowForward />
                   </li>

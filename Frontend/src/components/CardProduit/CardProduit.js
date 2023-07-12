@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { BiCartAdd } from 'react-icons/bi';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -12,6 +12,8 @@ const CardProduit = ({ data }) => {
   const handleToPanier = (item_data) => {
     Dispatch(addToPanier(item_data));
   };
+
+  const [detail, setDetail] = useState(false);
 
   return (
     <div>
@@ -29,14 +31,23 @@ const CardProduit = ({ data }) => {
           <div className="flex space-x-1 items-center">
             <p>Prix: {data.prix} Ar</p>
           </div>
+          <br/>
+          { detail &&
           <div className="flex space-x-1 items-center">
-            <p>Details: {data.description} Ar</p>
+            <p>Details: <br/> {data.description}</p>
           </div>
+          }
           <button
             className="mt-4 w-full text-white bg-blue-600 hover:bg-blue-400 py-2 rounded-xl shadow-lg"
             onClick={() => handleToPanier(data)}
           >
             Ajouter au panier
+          </button>
+          <button
+            className="mt-4 w-full text-white bg-gray-600 hover:bg-gray-400 py-2 rounded-xl shadow-lg"
+            onClick={() => setDetail(!detail)}
+          >
+            {detail?'Réduire':'Voir details'}
           </button>
         </div>
       </div>

@@ -136,7 +136,7 @@ const Cardcrud = () => {
         </label>
         <label className="flex flex-col">
           Description:
-          <input
+          <textarea
             type="text"
             name="description"
             value={formValues.description}

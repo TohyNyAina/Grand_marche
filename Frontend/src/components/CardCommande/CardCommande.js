@@ -61,7 +61,7 @@ const CardCommande = () => {
   return (
     <div>
       <div className="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-        <div className="w-full overflow-x-auto">
+        <div className="w-full overflow-x-auto mt-12">
           <table className="w-full mt-10">
             <thead className="bg-primary text-white">
               <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">

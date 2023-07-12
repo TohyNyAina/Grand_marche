@@ -29,6 +29,9 @@ const CardProduit = ({ data }) => {
           <div className="flex space-x-1 items-center">
             <p>Prix: {data.prix} Ar</p>
           </div>
+          <div className="flex space-x-1 items-center">
+            <p>Details: {data.description} Ar</p>
+          </div>
           <button
             className="mt-4 w-full text-white bg-blue-600 hover:bg-blue-400 py-2 rounded-xl shadow-lg"
             onClick={() => handleToPanier(data)}
